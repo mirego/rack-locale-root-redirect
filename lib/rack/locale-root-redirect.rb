@@ -2,7 +2,7 @@ require "rack/accept"
 
 module Rack
   class LocaleRootRedirect
-    VERSION = "0.0.3"
+    VERSION = "0.0.4"
 
     def initialize(app, locales = {})
       @locales = locales
@@ -20,7 +20,7 @@ module Rack
         redirect_lang = language_matcher.best_of(@available_locales) || @default_locale
 
         status = 302
-        headers["Location"] = "#{env["SERVER_PROTOCOL"]}://#{env["HTTP_HOST"]}#{@locales[redirect_lang.to_sym]}"
+        headers["Location"] = @locales[redirect_lang.to_sym]
       end
 
       [status, headers, response]
