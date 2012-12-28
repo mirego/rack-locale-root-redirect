@@ -40,3 +40,15 @@ end
 
 run MyApp
 ```
+
+Then, test it:
+
+```shell
+$ rackup &
+
+$ curl -sI "http://0.0.0.0:9292" -H "Accept-Language: fr;q=1, en;q=0.8" | grep Location
+Location: /fr
+
+$ curl -sI "http://0.0.0.0:9292" -H "Accept-Language: fr;q=0.4, en;q=0.8" | grep Location
+Location: /en
+```
