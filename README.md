@@ -46,9 +46,11 @@ Then, test it:
 ```shell
 $ rackup &
 
-$ curl -sI "http://0.0.0.0:9292" -H "Accept-Language: fr;q=1, en;q=0.8" | grep Location
+$ curl -sI "http://0.0.0.0:9292" -H "Accept-Language: fr;q=1, en;q=0.8" | grep "301\|Location"
+HTTP/1.1 301 Moved Permanently
 Location: /fr
 
-$ curl -sI "http://0.0.0.0:9292" -H "Accept-Language: fr;q=0.4, en;q=0.8" | grep Location
+$ curl -sI "http://0.0.0.0:9292" -H "Accept-Language: fr;q=0.4, en;q=0.8" | grep "301\|Location"
+HTTP/1.1 301 Moved Permanently
 Location: /en
 ```
