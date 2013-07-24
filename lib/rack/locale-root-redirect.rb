@@ -2,7 +2,7 @@ require "rack/accept"
 
 module Rack
   class LocaleRootRedirect
-    VERSION = "0.0.4"
+    VERSION = "0.1"
 
     def initialize(app, locales = {})
       @locales = locales
