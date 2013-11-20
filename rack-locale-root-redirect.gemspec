@@ -11,7 +11,7 @@ Gem::Specification.new do |gem|
   gem.description   = %q{Rack::LocaleRootRedirect uses Rack:Accept to map '/' to a path based on the `Accept-Language` HTTP header.}
   gem.summary       = gem.description
   gem.homepage      = 'https://github.com/mirego/rack-locale-root-redirect'
-  gem.license       = 'MIT'
+  gem.license       = 'BSD 3-Clause'
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
