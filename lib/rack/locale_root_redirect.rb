@@ -14,9 +14,8 @@ module Rack
     def call(env)
       status, headers, response = @app.call(env)
 
-      if match_data = %r[\A/(?<query_string>\?.*|\Z)].match(env['PATH_INFO'])
-        language_matcher = env['rack-accept.request'].language
-        language_matcher.first_level_match = true
+      if root_request?(env)
+        language_matcher = env['rack-accept.request'].language.tap { |m| m.first_level_match = true }
         redirect_lang = language_matcher.best_of(@available_locales) || @default_locale
 
         status = 302
@@ -25,6 +24,12 @@ module Rack
       end
 
       [status, headers, response]
+    end
+
+  protected
+
+    def root_request?(env)
+      %r[\A/(?<query_string>\?.*|\Z)].match(env['PATH_INFO'])
     end
   end
 end
