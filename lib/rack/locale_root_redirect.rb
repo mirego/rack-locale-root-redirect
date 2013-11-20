@@ -1,8 +1,8 @@
-require "rack/accept"
+require 'rack/accept'
 
 module Rack
   class LocaleRootRedirect
-    VERSION = "0.1"
+    VERSION = '0.1'
 
     def initialize(app, locales = {})
       @locales = locales
@@ -20,7 +20,7 @@ module Rack
 
         status = 302
         query_string = env['QUERY_STRING'] ? "?#{env['QUERY_STRING']}" : ''
-        headers["Location"] = @locales[redirect_lang.to_sym] + query_string
+        headers['Location'] = @locales[redirect_lang.to_sym] + query_string
       end
 
       [status, headers, response]
