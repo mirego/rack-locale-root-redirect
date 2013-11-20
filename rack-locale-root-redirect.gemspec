@@ -19,4 +19,8 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
 
   gem.add_runtime_dependency "rack-accept", ">= 0.4.5"
+
+  gem.add_development_dependency "rspec", "~> 2.14"
+  gem.add_development_dependency "coveralls"
+  gem.add_development_dependency "rake"
 end
