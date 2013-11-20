@@ -2,8 +2,6 @@ require 'rack/accept'
 
 module Rack
   class LocaleRootRedirect
-    VERSION = '0.2'
-
     def initialize(app, locales = {})
       @locales = locales
       @available_locales = locales.keys.map(&:to_s)

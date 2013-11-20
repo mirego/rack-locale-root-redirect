@@ -1,1 +1,1 @@
-require 'rack/locale_root_redirect'
+require 'rack/locale_root_redirect/middleware'
