@@ -4,7 +4,7 @@ require 'coveralls'
 Coveralls.wear!
 
 require 'rspec'
-require 'rack/locale-root-redirect'
+require 'rack-locale-root-redirect'
 
 RSpec.configure do |config|
 end

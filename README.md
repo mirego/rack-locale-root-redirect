@@ -11,7 +11,7 @@
 Add this line to your application’s Gemfile:
 
 ```ruby
-gem 'rack-locale-root-redirect', require: 'rack/locale-root-redirect'
+gem 'rack-locale-root-redirect'
 ```
 
 And then execute:
@@ -27,8 +27,7 @@ With Sinatra:
 ```ruby
 # Gemfile
 gem 'sinatra'
-gem 'rack-accept', require: 'rack/accept'
-gem 'rack-locale-root-redirect', require: 'rack/locale-root-redirect'
+gem 'rack-locale-root-redirect'
 
 # config.ru
 require 'bundler'
