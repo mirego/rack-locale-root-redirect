@@ -17,7 +17,7 @@ module Rack
         redirect_lang = language_matcher.best_of(@available_locales) || @default_locale
 
         status = 302
-        query_string = env['QUERY_STRING'] ? "?#{env['QUERY_STRING']}" : ''
+        query_string = env['QUERY_STRING'] == '' ? '' : "?#{env['QUERY_STRING']}"
         headers['Location'] = @locales[redirect_lang.to_sym] + query_string
       end
 
