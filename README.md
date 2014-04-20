@@ -50,11 +50,11 @@ Then, test it:
 $ rackup &
 
 $ curl -sI "http://0.0.0.0:9292" -H "Accept-Language: fr;q=1, en;q=0.8" | grep "302\|Location"
-HTTP/1.1 302 Moved Permanently
+HTTP/1.1 302 Found
 Location: /fr
 
 $ curl -sI "http://0.0.0.0:9292" -H "Accept-Language: fr;q=0.4, en;q=0.8" | grep "302\|Location"
-HTTP/1.1 302 Moved Permanently
+HTTP/1.1 302 Found
 Location: /en
 ```
 
