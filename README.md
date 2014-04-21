@@ -22,29 +22,31 @@ $ bundle
 
 ## Usage
 
-With Sinatra:
+Add the `rack-locale-root-redirect` gem in your `Gemfile`.
 
 ```ruby
-# Gemfile
-gem 'sinatra'
 gem 'rack-locale-root-redirect'
-
-# config.ru
-require 'bundler'
-Bundler.require
-
-class MyApp < Sinatra::Base
-  use Rack::Accept
-  use Rack::LocaleRootRedirect, fr: "/fr", en: "/en"
-
-  get('/fr') { 'Français!' }
-  get('/en') { 'English!' }
-end
-
-run MyApp
 ```
 
-Then, test it:
+### With Ruby on Rails
+
+Add these lines in your `config/application.rb` file, along other configuration instructions.
+
+```ruby
+config.use Rack::Accept
+config.use Rack::LocaleRootRedirect, fr: '/fr', en: '/en'
+```
+
+### With Sinatra
+
+Add these lines in your `config.ru` file, or wherever your Sinatra application is located.
+
+```ruby
+use Rack::Accept
+use Rack::LocaleRootRedirect, fr: '/fr', en: '/en'
+```
+
+### The result
 
 ```shell
 $ rackup &
@@ -60,7 +62,7 @@ Location: /en
 
 ## License
 
-`Rack::LocaleRootRedirect` is © 2013 [Mirego](http://www.mirego.com) and may be freely distributed under the [New BSD license](http://opensource.org/licenses/BSD-3-Clause).  See the [`LICENSE.md`](https://github.com/mirego/rack-locale-root-redirect/blob/master/LICENSE.md) file.
+`Rack::LocaleRootRedirect` is © 2013-2014 [Mirego](http://www.mirego.com) and may be freely distributed under the [New BSD license](http://opensource.org/licenses/BSD-3-Clause).  See the [`LICENSE.md`](https://github.com/mirego/rack-locale-root-redirect/blob/master/LICENSE.md) file.
 
 ## About Mirego
 
