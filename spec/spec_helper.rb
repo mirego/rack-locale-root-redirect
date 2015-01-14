@@ -13,4 +13,8 @@ require 'rack/accept'
 require 'rack-locale-root-redirect'
 
 RSpec.configure do |config|
+  # Disable `should` syntax
+  config.expect_with :rspec do |c|
+    c.syntax = :expect
+  end
 end
