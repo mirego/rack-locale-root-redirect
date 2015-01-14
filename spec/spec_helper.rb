@@ -1,8 +1,5 @@
 $:.unshift File.expand_path('../lib', __FILE__)
 
-require 'coveralls'
-Coveralls.wear!
-
 # We test using RSpec
 require 'rspec'
 

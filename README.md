@@ -1,7 +1,6 @@
 # Rack::LocaleRootRedirect
 
 [![Build Status](https://travis-ci.org/mirego/rack-locale-root-redirect.png?branch=master)](https://travis-ci.org/mirego/rack-locale-root-redirect)
-[![Coverage Status](https://coveralls.io/repos/mirego/rack-locale-root-redirect/badge.png)](https://coveralls.io/r/mirego/rack-locale-root-redirect)
 [![Ruby Gem](https://badge.fury.io/rb/rack-locale-root-redirect.png)](https://rubygems.org/gems/microscope)
 
 `Rack::LocaleRootRedirect` redirects requests to `"/"` based on the `Accept-Language` HTTP header.
@@ -62,7 +61,7 @@ Location: /en
 
 ## License
 
-`Rack::LocaleRootRedirect` is © 2013-2014 [Mirego](http://www.mirego.com) and may be freely distributed under the [New BSD license](http://opensource.org/licenses/BSD-3-Clause).  See the [`LICENSE.md`](https://github.com/mirego/rack-locale-root-redirect/blob/master/LICENSE.md) file.
+`Rack::LocaleRootRedirect` is © 2013-2015 [Mirego](http://www.mirego.com) and may be freely distributed under the [New BSD license](http://opensource.org/licenses/BSD-3-Clause).  See the [`LICENSE.md`](https://github.com/mirego/rack-locale-root-redirect/blob/master/LICENSE.md) file.
 
 ## About Mirego
 
