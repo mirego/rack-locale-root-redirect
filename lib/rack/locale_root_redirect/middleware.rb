@@ -22,6 +22,7 @@ module Rack
 
         status = STATUS
         query_string = env['QUERY_STRING'] == '' ? '' : "?#{env['QUERY_STRING']}"
+        headers['Vary'] = 'Accept-Language'
         headers['Location'] = @locales[locale.to_sym] + query_string
       end
 
