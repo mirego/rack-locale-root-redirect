@@ -1,7 +1,8 @@
 # Rack::LocaleRootRedirect
 
-[![Build Status](https://travis-ci.org/mirego/rack-locale-root-redirect.png?branch=master)](https://travis-ci.org/mirego/rack-locale-root-redirect)
-[![Ruby Gem](https://badge.fury.io/rb/rack-locale-root-redirect.png)](https://rubygems.org/gems/microscope)
+<a href="https://rubygems.org/gems/rack-locale-root-redirect"><img src="http://img.shields.io/gem/v/rack-locale-root-redirect.svg" /></a>
+<a href="https://travis-ci.org/mirego/rack-locale-root-redirect"><img src="http://img.shields.io/travis/mirego/rack-
+locale-root-redirect.svg" /></a>
 
 `Rack::LocaleRootRedirect` redirects requests to `"/"` based on the `Accept-Language` HTTP header.
 
