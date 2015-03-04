@@ -1,7 +1,7 @@
 module Rack
   class LocaleRootRedirect
     STATUS = 302
-    REGEX = %r[\A/(?<query_string>\?.*|\Z)]
+    REGEX = %r{\A/(?<query_string>\?.*|\Z)}
     RACK_ACCEPT_MISSING = 'Rack::LocaleRootRedirect must be used after Rack::Accept. Please make your application use Rack::Accept before Rack::LocaleRootRedirect.'
 
     # @private
@@ -39,13 +39,10 @@ module Rack
     # Return the best locale to redirect to based on the request enviroment
     def best_locale(env)
       if accept = env['rack-accept.request']
-        matcher = accept.language.tap do |matcher|
-          matcher.first_level_match = true
-        end
-
+        matcher = accept.language.tap { |m| m.first_level_match = true }
         matcher.best_of(@available_locales) || @default_locale
       else
-        raise StandardError.new(RACK_ACCEPT_MISSING)
+        raise StandardError, RACK_ACCEPT_MISSING
       end
     end
   end
