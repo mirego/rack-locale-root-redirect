@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Rack::LocaleRootRedirect do
-  let(:app) { proc{[200,{},['Hello, world.']]} }
+  let(:app) { proc { [200, {}, ['Hello, world.']] } }
   let(:request) { Rack::MockRequest.new(stack) }
 
   context 'with stack using Rack::Accept' do
@@ -12,21 +12,21 @@ describe Rack::LocaleRootRedirect do
       let(:response) { request.get('/?foo=bar', 'HTTP_ACCEPT_LANGUAGE' => accept_language.join(',')) }
 
       context 'with first matching language' do
-        let(:accept_language) { %w{en es;q=0.9} }
+        let(:accept_language) { %w(en es;q=0.9) }
         it { expect(response.headers['Location']).to eq '/en?foo=bar' }
-        it { expect(response.headers['Vary']).to eq 'Accept-Language'}
+        it { expect(response.headers['Vary']).to eq 'Accept-Language' }
       end
 
       context 'with second matching language' do
-        let(:accept_language) { %w{es en;q=0.8} }
+        let(:accept_language) { %w(es en;q=0.8) }
         it { expect(response.headers['Location']).to eq '/en?foo=bar' }
-        it { expect(response.headers['Vary']).to eq 'Accept-Language'}
+        it { expect(response.headers['Vary']).to eq 'Accept-Language' }
       end
 
       context 'with default matching language' do
-        let(:accept_language) { %w{es jp;q=0.8} }
+        let(:accept_language) { %w(es jp;q=0.8) }
         it { expect(response.headers['Location']).to eq '/fr?foo=bar' }
-        it { expect(response.headers['Vary']).to eq 'Accept-Language'}
+        it { expect(response.headers['Vary']).to eq 'Accept-Language' }
       end
     end
   end

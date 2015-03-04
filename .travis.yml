@@ -7,7 +7,9 @@ rvm:
 
 sudo: false
 
-script: "echo 'DO IT' && bundle exec rake spec"
+script:
+  - 'echo "Checking code style" && bundle exec phare'
+  - 'echo "Running tests" && bundle exec rake spec'
 
 notifications:
   hipchat:

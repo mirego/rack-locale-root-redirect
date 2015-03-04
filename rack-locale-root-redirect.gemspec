@@ -22,4 +22,6 @@ Gem::Specification.new do |gem|
 
   gem.add_development_dependency 'rspec', '~> 3.1'
   gem.add_development_dependency 'rake'
+  gem.add_development_dependency 'rubocop', '0.29'
+  gem.add_development_dependency 'phare'
 end
