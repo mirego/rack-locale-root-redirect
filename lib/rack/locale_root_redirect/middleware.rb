@@ -1,8 +1,9 @@
 module Rack
   class LocaleRootRedirect
     STATUS = 302
-    REGEX = %r{\A/(?<query_string>\?.*|\Z)}
+    ROOT_REQUEST_REGEX = %r{\A/(?<query_string>\?.*|\Z)}
     RACK_ACCEPT_MISSING = 'Rack::LocaleRootRedirect must be used after Rack::Accept. Please make your application use Rack::Accept before Rack::LocaleRootRedirect.'
+    REDIRECTED_RESPONSE_REGEX = %r{\A3\d\d\Z}
 
     # @private
     def initialize(app, locales = {})
@@ -17,7 +18,7 @@ module Rack
     def call(env)
       status, headers, response = @app.call(env)
 
-      if root_request?(env)
+      if should_redirect?(env, status)
         locale = best_locale(env)
 
         status = STATUS
@@ -32,8 +33,18 @@ module Rack
   protected
 
     # Return whether we must act on this request
+    def should_redirect?(env, status)
+      !redirected_response?(status) && root_request?(env)
+    end
+
+    # Return whether the request was on the root endpoint (`/`)
     def root_request?(env)
-      REGEX.match(env['PATH_INFO'])
+      ROOT_REQUEST_REGEX.match(env['PATH_INFO'])
+    end
+
+    # Return whether the response we’re altering is already a redirection
+    def redirected_response?(status)
+      REDIRECTED_RESPONSE_REGEX.match(status.to_s)
     end
 
     # Return the best locale to redirect to based on the request enviroment
